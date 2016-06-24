@@ -55,6 +55,24 @@ console.log(mystr.split(".",2));
 [ 'www', 'jisuanke', 'com' ]                    
 [ 'www', 'jisuanke' ]   
 
+### 字符串的提取
+```
+var mystr = "I like JavaScript!";
+console.log(mystr.substring(7));
+console.log(mystr.substring(2,6));
+```
+JavaScript!                                     
+like     
+
+### 提取指定书目的字符串
+```
+var mystr = "I like JavaScript!";
+console.log(mystr.substr(7));
+console.log(mystr.substr(2,4));
+```
+JavaScript!                                     
+like        
+
 ##Date
 ```
 var now = new Date();
@@ -70,3 +88,32 @@ var weekday=["星期日", "星期一", "星期二", "星期三", "星期四", "�
 console.log(weekday[mynum]);
 
 ```
+## Math 对象
+
+```
+console.log(Math.PI);
+console.log(Math.abs(-15));
+```
+3.141592653589793                               
+15      
+
+### 取整
+```
+console.log(Math.ceil(0.8)); //1
+console.log(Math.floor(0.8)); //0
+console.log(Math.round(0.8)); //1
+```
+
+### 随机数
+random() 方法可返回介于 0 ~ 1（大于或等于 0 但小于 1 )之间的一个随机数。
+
+使用语法：Math.random();
+
+如果我还想在下面一行输出一个 0 至 10 之间的随机整数呢？提示：可以结合使用 random () 方法和 round() 方法。
+
+```
+console.log((Math.random()) * 10); //2.2717340756207705                              
+console.log(Math.round((Math.random()) * 10)); //1   
+```
+
+
