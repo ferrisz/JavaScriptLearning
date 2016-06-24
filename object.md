@@ -116,4 +116,126 @@ console.log((Math.random()) * 10); //2.2717340756207705
 console.log(Math.round((Math.random()) * 10)); //1   
 ```
 
+### 最大值与最小值
+```
+console.log(Math.min(0.8, 6.3, 5, 3.5, -5.1, -5.9)); // -5.9 
+console.log(Math.max(0.8, 6.3, 5, 3.5, -5.1, -5.9)); // 6.3 
+```
 
+## 数组
+###定义数组的方法
+* 定义了一个空数组：```var 数组名 = new Array();```
+
+* 定义时指定有 n 个空元素的数组：```var 数组名 = new Array(n);```
+
+* 定义数组的时候，直接初始化数据：```var 数组名 = [<元素 1>, <元素 2>, <元素 3>...];```
+
+### 数组属性
+length 用法：```<数组对象>.length```
+
+### 数组连接
+数组连接但不改变原数组
+
+```
+var mya1 = new Array("hello!");
+var mya2 = new Array("I", "love");
+var mya3 = new Array("JavaScript", "!");
+console.log(mya1.concat(mya2,mya3));
+console.log(mya1);
+```
+
+[ 'hello!', 'I', 'love', 'JavaScript', '!' ]    
+[ 'hello!' ]          
+
+### 数组连接成字符串
+
+```
+var myarr = new Array(3);
+myarr[0] = "www";
+myarr[1] = "jisuanke";
+myarr[2] = "com";
+console.log(myarr.join("."));
+```
+
+www.jisuanke.com     
+
+数组之间用.号连接（那个参数可选）
+
+ 
+###颠倒数组元素顺序
+
+```
+var myarr = new Array(3);
+myarr[0] = "www";
+myarr[1] = "jisuanke";
+myarr[2] = "com";
+console.log(myarr.reverse());
+console.log(myarr);
+```
+
+[ 'com', 'jisuanke', 'www' ]                    
+[ 'com', 'jisuanke', 'www' ]                    
+
+该方法会改变原来数组而不创建新的数组
+
+### 选取子数组
+slice() 方法可从已有的数组中返回一个新的数组，包含从 start 到 end （不包括该元素）的 所有元素。
+
+使用语法：arrayObject.slice(start, end)
+
+参数说明：start 必填的哦，规定从何处开始选取。如果是负数，就从数组尾部开始算起始位置，比如 -1 指最后一个元素，-2 指倒数第二个元素。
+
+end 可选，规定从何处结束选取。该参数是子数组结束处的父数组下标。如果不指定，则一直选取到 arrayObject 末尾。如果为负数，则从数组尾部开始算结束位置，同 start。
+
+需要注意的是：
+
+1.可使用负值从数组的尾部选取元素。
+
+2.如果 end 未被规定，那么 slice() 方法会选取从 start 到数组结尾的所有元素。
+
+3.String.slice() 与 Array.slice() 相似。
+
+4.该方法并不会修改数组，而是返回一个子数组。
+
+```
+var myarr = new Array(3);
+myarr[0] = "www";
+myarr[1] = "jisuanke";
+myarr[2] = "com";
+console.log(myarr.slice(0,2));
+```
+[ 'www', 'jisuanke' ]      
+
+###数组排序
+sort() 方法使数组中的元素按照一定的顺序排列。
+
+使用语法：arrayObject.sort (方法函数)
+
+参数说明：方法函数可选，如果不指定方法函数，则按 unicode 码顺序排列。
+
+需要注意的是：该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下： 若返回值 <= -1，则表示 A 在排序后的序列中出现在 B 之前。若返回值 >-1 && <1，则表示 A 和 B 具有相同的排序顺序。若返回值 >= 1，则表示 A 在排序后的序列中出现在 B 之后。
+
+“结果怎么不对呀，字母好像是排序了，但是数字并没有排序呀。”
+
+“是呀，因为我们没有填写方法参数，所以还是按照 unicode 码排序，如果想实现数字排序的话，得填写一个方法参数。”
+
+另起一行，写下console.log(myarr2.sort(sortNum));，将方法函数名 sortNum 写在括号中。
+
+```
+function sortNum(a,b) {
+    return a - b;
+    //升序，如降序，把“a - b”该成“b - a”
+}
+var myarr1 = new Array("Hello", "John", "love", "JavaScript");
+var myarr2 = new Array("80", "16", "50", "6", "100", "1");
+console.log(myarr1.sort());
+console.log(myarr2.sort());
+console.log(myarr2.sort(sortNum));
+```
+
+[ 'Hello', 'JavaScript', 'John', 'love' ]       
+[ '1', '100', '16', '50', '6', '80' ]           
+[ '1', '6', '16', '50', '80', '100' ]           
+                                                
+                    
+                                                
